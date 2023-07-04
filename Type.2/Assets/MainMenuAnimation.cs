@@ -1,24 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuAnimation : MonoBehaviour
 {
-    [SerializeField] private Animator MainScreenAnimator;
+    [SerializeField] private CanvasGroup MainTitle;
+    [SerializeField] private CanvasGroup MainMenuContainer;
 
-    void Start()
+    [SerializeField] private RectTransform MainTitleContainer;
+    [SerializeField] private RawImage Caret;
+
+    private void Start()
     {
-        MainScreenAnimator.SetBool("Start", true);
-        if (MainScreenAnimator.GetCurrentAnimatorStateInfo(0).IsName("MainTitleFadeIn"))
-        {
-            MainScreenAnimator.SetBool("Start", false);
-            MainScreenAnimator.SetBool("isCompleted", true);
-        }
+        MainTitleAnimation();
     }
 
-    private void Update()
+    public void MainTitleAnimation()
     {
-       
+        Sequence OnGameStart = DOTween.Sequence();
+        OnGameStart.Append(MainTitle.DOFade(2f, 1f));
+        OnGameStart.Append(MainTitleContainer.DOMoveY(2f, 1f));
+        OnGameStart.Append(MainMenuContainer.DOFade(1f, 2f));
+        OnGameStart.IsComplete();
+        Sequence CaretBlink = DOTween.Sequence();
+        CaretBlink.SetLoops(-1);
+        CaretBlink.Append(Caret.DOFade(1f, 0.6f));
+        CaretBlink.Append(Caret.DOFade(0f, 0.6f));
     }
-
 }
