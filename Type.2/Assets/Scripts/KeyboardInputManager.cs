@@ -1,3 +1,5 @@
+using DG.Tweening;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +12,9 @@ public class KeyboardInputManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI PlayInputFieldPlaceholder;
     [SerializeField] private TextMeshProUGUI SettingsInputFieldPlaceholder;
     [SerializeField] private TextMeshProUGUI AboutInputFieldPlaceholder;
-    
+
+    [SerializeField] private PublicAnimations publicAnimations;
+
     private string character;
     private void Update()
     {
@@ -49,6 +53,9 @@ public class KeyboardInputManager : MonoBehaviour
         else if (SettingsInputField.text == SettingsInputFieldPlaceholder.text)
         {
             Debug.Log("Settings");
+
+         
+         
         }
         else if (AboutInputField.text == AboutInputFieldPlaceholder.text)
         {
