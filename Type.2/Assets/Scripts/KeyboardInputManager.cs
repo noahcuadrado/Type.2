@@ -54,7 +54,7 @@ public class KeyboardInputManager : MonoBehaviour
         {
             Debug.Log("Settings");
 
-         
+            publicAnimations.SettingsAnimation();
          
         }
         else if (AboutInputField.text == AboutInputFieldPlaceholder.text)
