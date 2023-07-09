@@ -1,21 +1,40 @@
 using DG.Tweening;
+using System.Collections;
+using System;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
 public class KeyboardInputManager : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField PlayInputField;
-    [SerializeField] private TMP_InputField SettingsInputField;
-    [SerializeField] private TMP_InputField AboutInputField;
+    [SerializeField]
+    private TMP_InputField PlayInputField;
 
-    [SerializeField] private TextMeshProUGUI PlayInputFieldPlaceholder;
-    [SerializeField] private TextMeshProUGUI SettingsInputFieldPlaceholder;
-    [SerializeField] private TextMeshProUGUI AboutInputFieldPlaceholder;
+    [SerializeField]
+    private TMP_InputField SettingsInputField;
 
-    [SerializeField] private PublicAnimations publicAnimations;
+    [SerializeField]
+    private TMP_InputField AboutInputField;
+
+    [SerializeField]
+    private TextMeshProUGUI PlayInputFieldPlaceholder;
+
+    [SerializeField]
+    private TextMeshProUGUI SettingsInputFieldPlaceholder;
+
+    [SerializeField]
+    private TextMeshProUGUI AboutInputFieldPlaceholder;
+
+    [SerializeField]
+    private PublicAnimations publicAnimations;
 
     private string character;
+
+    private void Start()
+    {
+       
+    }
+
     private void Update()
     {
         foreach (char c in Input.inputString)
@@ -24,15 +43,24 @@ public class KeyboardInputManager : MonoBehaviour
             {
                 if (PlayInputField.text.Length != 0)
                 {
-                    PlayInputField.text = PlayInputField.text.Substring(0, PlayInputField.text.Length - 1);
+                    PlayInputField.text = PlayInputField.text.Substring(
+                        0,
+                        PlayInputField.text.Length - 1
+                    );
                 }
                 if (SettingsInputField.text.Length != 0)
                 {
-                    SettingsInputField.text = SettingsInputField.text.Substring(0, SettingsInputField.text.Length - 1);
+                    SettingsInputField.text = SettingsInputField.text.Substring(
+                        0,
+                        SettingsInputField.text.Length - 1
+                    );
                 }
                 if (AboutInputField.text.Length != 0)
                 {
-                    AboutInputField.text = AboutInputField.text.Substring(0, AboutInputField.text.Length - 1);
+                    AboutInputField.text = AboutInputField.text.Substring(
+                        0,
+                        AboutInputField.text.Length - 1
+                    );
                 }
             }
             else if ((c == '\n') || (c == '\r')) // enter/return
@@ -45,23 +73,18 @@ public class KeyboardInputManager : MonoBehaviour
                 SettingsInputField.text += c;
                 AboutInputField.text += c;
             }
-        }
-        if (PlayInputField.text == PlayInputFieldPlaceholder.text)
-        {
-            Debug.Log("Play");
-        }
-        else if (SettingsInputField.text == SettingsInputFieldPlaceholder.text)
-        {
-            Debug.Log("Settings");
-
-            publicAnimations.SettingsAnimation();
-         
-        }
-        else if (AboutInputField.text == AboutInputFieldPlaceholder.text)
-        {
-            Debug.Log("About");
+            if (PlayInputField.text == PlayInputFieldPlaceholder.text)
+            {
+                Debug.Log("Play");
+            }
+            else if (SettingsInputField.text == SettingsInputFieldPlaceholder.text)
+            {
+                publicAnimations.SettingsAnimation();
+            }
+            else if (AboutInputField.text == AboutInputFieldPlaceholder.text)
+            {
+                Debug.Log("About");
+            }
         }
     }
 }
-
-

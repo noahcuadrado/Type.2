@@ -5,9 +5,14 @@ using DG.Tweening;
 
 public class PublicAnimations : MonoBehaviour
 {
-    [SerializeField] GameObject SettingsBG;
-  public void SettingsAnimation()
+    [SerializeField] private CanvasGroup SettingsBG;
+    [SerializeField] private CanvasGroup SettingsEmpty;
+    public void SettingsAnimation()
     {
         Sequence SettingsAnimation = DOTween.Sequence();
+        //SettingsBG.gameObject.SetActive(true);
+        SettingsAnimation.Append(SettingsBG.DOFade(0.5f, 10f));
+        SettingsAnimation.Append(SettingsEmpty.DOFade(1f, 10f));
+        SettingsAnimation.Complete();
     }
 }
