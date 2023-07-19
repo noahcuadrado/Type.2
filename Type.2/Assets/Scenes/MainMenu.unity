@@ -242,7 +242,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1368045095}
+        m_TargetAssemblyTypeName: CheckIfTextMatches, Assembly-CSharp
+        m_MethodName: checkIfTextMatches
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -362,7 +374,7 @@ GameObject:
   - component: {fileID: 94665057}
   - component: {fileID: 94665056}
   m_Layer: 0
-  m_Name: Placeholder
+  m_Name: About Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -518,7 +530,7 @@ GameObject:
   - component: {fileID: 216998336}
   - component: {fileID: 216998335}
   m_Layer: 0
-  m_Name: Placeholder
+  m_Name: Play Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1467,7 +1479,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1209909253}
   - component: {fileID: 1209909254}
-  - component: {fileID: 1209909255}
   m_Layer: 0
   m_Name: KeyboardInputManager
   m_TagString: Untagged
@@ -1505,24 +1516,7 @@ MonoBehaviour:
   PlayInputField: {fileID: 20491120}
   SettingsInputField: {fileID: 495531872}
   AboutInputField: {fileID: 1822157788}
-  PlayInputFieldPlaceholder: {fileID: 216998336}
-  SettingsInputFieldPlaceholder: {fileID: 1232565445}
-  AboutInputFieldPlaceholder: {fileID: 94665057}
-  publicAnimations: {fileID: 1209909255}
---- !u!114 &1209909255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1209909252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb3a8606b440394d87987e898a6e015, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SettingsBG: {fileID: 1746533599}
-  SettingsEmpty: {fileID: 31907457}
+  character: 
 --- !u!1 &1232565442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,7 +1530,7 @@ GameObject:
   - component: {fileID: 1232565445}
   - component: {fileID: 1232565444}
   m_Layer: 0
-  m_Name: Placeholder
+  m_Name: Settings Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1825,6 +1819,8 @@ GameObject:
   - component: {fileID: 1368045090}
   - component: {fileID: 1368045091}
   - component: {fileID: 1368045093}
+  - component: {fileID: 1368045095}
+  - component: {fileID: 1368045094}
   m_Layer: 0
   m_Name: MainMenuGroup
   m_TagString: Untagged
@@ -1893,6 +1889,39 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1368045094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368045089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb3a8606b440394d87987e898a6e015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SettingsBG: {fileID: 1746533599}
+  SettingsEmpty: {fileID: 31907457}
+--- !u!114 &1368045095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368045089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1e7ca919ee27f478bb54469fe86e42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayInputField: {fileID: 20491120}
+  SettingsInputField: {fileID: 495531872}
+  AboutInputField: {fileID: 1822157788}
+  PlayInputFieldPlaceholder: {fileID: 216998336}
+  SettingsInputFieldPlaceholder: {fileID: 1232565445}
+  publicAnimations: {fileID: 1368045094}
+  AboutInputFieldPlaceholder: {fileID: 94665057}
 --- !u!1 &1598569455
 GameObject:
   m_ObjectHideFlags: 0
@@ -2151,7 +2180,7 @@ GameObject:
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1746533596
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2186,7 +2215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

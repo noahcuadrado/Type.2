@@ -10,9 +10,9 @@ public class PublicAnimations : MonoBehaviour
     public void SettingsAnimation()
     {
         Sequence SettingsAnimation = DOTween.Sequence();
-        //SettingsBG.gameObject.SetActive(true);
-        SettingsAnimation.Append(SettingsBG.DOFade(0.5f, 10f));
-        SettingsAnimation.Append(SettingsEmpty.DOFade(1f, 10f));
+        SettingsBG.gameObject.SetActive(true);
+        SettingsAnimation.Append(SettingsBG.DOFade(1f, 1f));
+        SettingsAnimation.Append(SettingsEmpty.DOFade(1f, 1f));
         SettingsAnimation.Complete();
     }
 }

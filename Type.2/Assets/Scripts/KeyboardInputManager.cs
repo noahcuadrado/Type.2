@@ -17,17 +17,7 @@ public class KeyboardInputManager : MonoBehaviour
     private TMP_InputField AboutInputField;
 
     [SerializeField]
-    private TextMeshProUGUI PlayInputFieldPlaceholder;
-
-    [SerializeField]
-    private TextMeshProUGUI SettingsInputFieldPlaceholder;
-
-    [SerializeField]
-    private TextMeshProUGUI AboutInputFieldPlaceholder;
-
-    [SerializeField]
-    private PublicAnimations publicAnimations;
-
+ 
     private string character;
 
     private void Start()
@@ -73,18 +63,9 @@ public class KeyboardInputManager : MonoBehaviour
                 SettingsInputField.text += c;
                 AboutInputField.text += c;
             }
-            if (PlayInputField.text == PlayInputFieldPlaceholder.text)
-            {
-                Debug.Log("Play");
-            }
-            else if (SettingsInputField.text == SettingsInputFieldPlaceholder.text)
-            {
-                publicAnimations.SettingsAnimation();
-            }
-            else if (AboutInputField.text == AboutInputFieldPlaceholder.text)
-            {
-                Debug.Log("About");
-            }
         }
     }
-}
+   
+    }
+
+
